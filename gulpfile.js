@@ -1,9 +1,11 @@
 var gulp = require('gulp');
 var ejs = require('gulp-ejs');
+var prettify = require('gulp-prettify')
 
 gulp.task("ejs",function () {
     gulp.src(["template/**/*.ejs","!template/**/_*.ejs"])
         .pipe(ejs("json",{"ext":".html"}))
+        .pipe(prettify())
         .pipe(gulp.dest("public_html"))
 })
 
